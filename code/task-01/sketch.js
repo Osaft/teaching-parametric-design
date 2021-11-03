@@ -30,7 +30,7 @@ function draw() {
   fill("rgba(0,0,0,0)");
   strokeWeight(50);
   stroke("rgba(29, 53, 87, 0.5)");
-  arc(199,
+  arc(200,
      200, 
      300, 
      300, 
