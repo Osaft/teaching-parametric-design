@@ -1,74 +1,34 @@
-let width = 400;
-let height = 400;
-let rotorwert = 10
-let angle = 0;
-let radius = 0;
-let green;
-let red;
-let blue;
-let greeninc;
-let blueinc;
-let redinc;
-
-let radiuswert;
-let anglewert;
 
 function setup() {
-  createCanvas(width, height);
-
-  anglewert = 91;
-  radiuswert = random(0.05,0.05);
-  
-
-  red = random(255);
-  blue = random(255);
-  green = random(255);
-
-  blueinc = random(30);
-  redinc = random(30);
-  greeninc = random(30);
+  createCanvas(400, 400);
 }
 
 function draw() {
-  console.log(red,green,blue);
-  angleMode(DEGREES);
-  rectMode(CENTER);
-  stroke("black");
-  strokeWeight(5);
-  // noLoop();
-  frameRate(10000);
+	background(0);
+	noFill();
 
-  for (let i = 0; i < 20; i++) {
- push();
-  translate(width/2,height/2);
-  red+=redinc;
-  green+=greeninc;
-  blue+=blueinc;
+	let linienanzahl = 10;
+	let wellen = 200;
 
-  rotate(angle);
-  angle+=anglewert;
-  radius+=radiuswert;
-  stroke(red,blue,green)
+  let time = millis() / 5000;
 
-  point(radius,0);
+	for (j = 0; j < linienanzahl; j++) {
+		let farbe = j / linienanzahl*360;
 
-  if (red> 255){
-    red = 0;
-  }
-  if (blue> 255){
-    blue = 0;
-  }
-  if (green> 255){
-    green = 0;
-  }
-  pop();
+		beginShape();
+		stroke(farbe, 200, 200);
 
+		for (i = 0; i < wellen; i++) {
 
+			let wellenabstand = (j / 10 + time);
+			let py = i / (50 + j);
 
+			let y = noise(wellenabstand, py) * height;
 
-  }
-}
-function mousePressed() {
-  redraw();
-  
+			let x = i / (wellen - 1) * width;
+
+			vertex(x, y);
+		}
+		endShape();
+	}
 }
