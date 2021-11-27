@@ -1,6 +1,6 @@
 let xoff = 0;
 let yoff = 0;
-let res = 20;
+let res = 40;
 let zoff = 0;
 let ii = 400
 
@@ -34,7 +34,7 @@ for (let ebenen = 0; ebenen < 1; ebenen++) {
       translate(width/res*x,height/res*y);
 
       rotate(noise(xoff,yoff)*360);
-      line(0,0,9,9);
+      line(0,0,7,7);
       xoff = xoff+0.1;
     
 
@@ -46,5 +46,5 @@ for (let ebenen = 0; ebenen < 1; ebenen++) {
 
 zoff = zoff + 1;
 }
-// save();
+save();
 }
